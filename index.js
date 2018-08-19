@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const Discord = require('ms')
 
 var bot = new Discord.Client()
 
