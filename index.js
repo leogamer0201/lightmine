@@ -10,16 +10,15 @@ bot.on("message", function(message) {
            
 });
 
-    bot.on("message", async message => {
+   bot.on("message", async message => {
         if(message.author.bot) return;
         if(message.channel.type === "dm") return;
-
         let prefix = '!'
         let messageArray = message.content.split(" ");
         let command = messageArray[0];
         let args = messageArray.slice(1);
 
- if (command == `${prefix}ajuda`) {
+        if (command == `${prefix}ajuda`) {
 			
 			message.channel.send(message.author + '**, Enviei meus comandos na sua dm.**')
 			
@@ -56,12 +55,14 @@ bot.on("message", function(message) {
   }catch(e){
     console.log(e.stack);
   }
+		
+		}
 
         if (command == `${prefix}serverinfo`) {
             const embed = new Discord.RichEmbed()
          .addField(':computer: Id do servidor', message.guild.id)
         .setColor(0x00FFFF)
-        .addField(':hammer: Criadores do bot', '`Harry#6281`')
+        .addField(':hammer: Criadores do bot', '`Harry#6281` e `_SpeedLight_#4293`')
         .addField(':newspaper: Seu Cargo', message.member.highestRole.name)
         .addField(':tophat: Criador do servidor', message.guild.owner)
         .addField(':earth_americas:   Região do servidor', message.guild.region)
@@ -146,7 +147,7 @@ if (command == `${prefix}anunciar`) {
         .addField('Razão', rreason)
           .setColor("#54eb12")
           .setThumbnail(message.author.avatarURL)
-          .setFooter(`LightReport`)
+          .setFooter(`FlashReport`)
       
           let reportschannel = message.guild.channels.find(`name`, 'reportes');
           if(!reportschannel) return message.channel.send(`O canal **reportes** não existe. :x:`);
