@@ -19,10 +19,44 @@ bot.on("message", function(message) {
         let command = messageArray[0];
         let args = messageArray.slice(1);
 
-        if (command == `${prefix}ajuda`) {
+ if (command == `${prefix}ajuda`) {
+			
+			message.channel.send(message.author + '**, Enviei meus comandos na sua dm.**')
+			
+			const h1 = new Discord.RichEmbed()
+			.addField('Comandos Públicos:', '!serverinfo - Mostra as informações do servidor\n!reportar - Reporta um usuário para a Staff')
+			.setColor('#ff7a00')
+			.setAuthor(message.author.tag, message.author.displayAvatarURL)
+			
+			const h2 = new Discord.RichEmbed()
+			.addField('Comandos para Moderação:', '!ban - Bane o usuário do servidor(Banir Membros)\n!kick - Expulsa o usuário do servidor(Expulsar Membros)')
+			.setColor('#ff1800')
+			.setAuthor(message.author.tag, message.author.displayAvatarURL)
+			
+			const h3 = new Discord.RichEmbed()
+			.addField('Outros Comandos:', '!anunciar - Faz um anúncio no canal #anuncios(Gerenciar Canais)')
+			.setColor('#00ff01')
+			.setAuthor(message.author.tag, message.author.displayAvatarURL)
+	
+			  try{
+    await message.author.send(h1)
+  }catch(e){
+    console.log(e.stack);
+    message.channel.send(`${message.author}**, Habilite o Dm para eu enviar os comandos.**`)
+  }
+		
+		  try{
+    await message.author.send(h2)
+  }catch(e){
+    console.log(e.stack);
+  }
+		
+				  try{
+    await message.author.send(h3)
+  }catch(e){
+    console.log(e.stack);
+  }
 
-            message.channel.send('**Olá,' + message.author + '! Esse comando ainda está sendo feito. Tente novamente mais tarde. :x:**')
-}
 
         if (command == `${prefix}serverinfo`) {
             const embed = new Discord.RichEmbed()
