@@ -57,7 +57,6 @@ bot.on("message", function(message) {
     console.log(e.stack);
   }
 
-
         if (command == `${prefix}serverinfo`) {
             const embed = new Discord.RichEmbed()
          .addField(':computer: Id do servidor', message.guild.id)
