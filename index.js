@@ -4,10 +4,15 @@ var bot = new Discord.Client()
 
 const TOKEN = process.env.BOT_TOKEN
 
-bot.on("message", function(message) {
+bot.on('ready', () => {
 
-    bot.user.setActivity(`Servidor de minecraft! > Site: https://lightmine.tk`, {type: "WATCHING"});
-           
+  console.log(`📡 Estou conectado a: ${bot.users.size} usuários.`)
+  let games = [`📡 Estou conectado a ` + bot.users.size + ` Usuários conectados no total`,
+      `🇧🇷 Sou o bot oficial do servidor Light Network`, `😛 Minha prefix e !`, `🤔 Compre vip em nosso site: https://lightmine.tk`];
+  setInterval(() => {
+      bot.user.setActivity(games[Math.floor(Math.random() * games.length)], { url: "https://twitch.tv/redstoneg4", type: "STREAMING" })
+
+  }, 20000);
 });
 
    bot.on("message", async message => {
