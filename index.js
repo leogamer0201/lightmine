@@ -136,14 +136,14 @@ if (command == `${prefix}anunciar`) {
 bot.on('guildMemberAdd', member => {
   let avatar = member.user.avatarURL
 
-  let role = member.guild.roles.find('name', '🤐 NÃO VERIFICADO');
+  let role = member.guild.roles.find('name', ':zipper_mouth: NÃO VERIFICADO');
 
   let embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setThumbnail(avatar)
-      .addField('Bem vindo ao discord.', `Bem vindo(a) ${member} ao discord oficial da Light Network!\n Você foi o __${member.guild.memberCount}__ player a entrar em nosso servidor\n \nPara interagir com os player vá em: 📃chat-geral\nPara ver os nossos anúncios vá em: ⛔avisos⛔\n \nAcesse já o site do servidor: https://lightmine.tk`)
-      .setFooter(`Atlantic`);
-      client.channels.get('503980138766139433').send(embed);
+      .addField('Bem vindo ao discord.', `Bem vindo(a) ${member} ao discord oficial da Light!\n Você foi o __${member.guild.memberCount}__ player a entrar em nosso servidor\n \nPara interagir com os player vá em: #📃chat-geral\nPara ver os nossos anúncios vá em: #⛔avisos⛔\n \nAcesse já o site do servidor: https://lightmine.tk`)
+      .setFooter(`Light`);
+      bot.channels.get('502233508618698753').send(embed);
       member.addRole(role)
 })
 
