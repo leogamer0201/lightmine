@@ -22,7 +22,7 @@ bot.on("message", function(message) {
             const embed = new Discord.RichEmbed()
          .addField(':computer: Id do servidor', message.guild.id)
         .setColor(0x00FFFF)
-        .addField(':hammer: Criadores do bot', '`Harry#6281` e `_SpeedLight_#4293`')
+        .addField(':hammer: Criadores do bot', '`zPotterZ ツ #6281`')
         .addField(':newspaper: Seu Cargo', message.member.highestRole.name)
         .addField(':tophat: Criador do servidor', message.guild.owner)
         .addField(':earth_americas:   Região do servidor', message.guild.region)
