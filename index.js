@@ -121,7 +121,7 @@ if (command == `${prefix}anunciar`) {
       let avatar = member.user.avatarURL
 
       let embed = new Discord.RichEmbed()
-          .setColor('RANDOM')
+          .setColor('#CC0000')
           .setThumbnail(avatar)
           .addField('Bem vindo ao discord.', `Bem vindo(a) ${member} ao discord oficial da Light NetWork!\n Você foi o __${member.guild.memberCount}__ player a entrar em nosso servidor\n \nPara interagir com os player vá em: #📃chat-geral\nPara ver os nossos anúncios vá em: #⛔avisos⛔\n \nAcesse já o site do servidor: https://lightmine.tk/`)
           .setFooter(`Light NetWork`);
