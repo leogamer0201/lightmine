@@ -18,22 +18,6 @@ bot.on("message", function(message) {
         let command = messageArray[0];
         let args = messageArray.slice(1);
 
-        if (command == `${prefix}serverinfo`) {
-            const embed = new Discord.RichEmbed()
-         .addField(':computer: Id do servidor', message.guild.id)
-        .setColor(0x00FFFF)
-        .addField(':hammer: Criadores do bot', '`zPotterZ ツ #6281`')
-        .addField(':newspaper: Seu Cargo', message.member.highestRole.name)
-        .addField(':tophat: Criador do servidor', message.guild.owner)
-        .addField(':earth_americas:   Região do servidor', message.guild.region)
-        .addField(`:speech_balloon: Canais (${message.guild.channels.size})`, `:pencil: Texto: ${message.guild.channels.filter(m => m.type === 'text').size}\n:loud_sound: Voz: ${message.guild.channels.filter(m => m.type === 'voice').size}`)
-        .addField(':book: Servidor criado em', message.guild.createdAt)
-        .addField(':balloon: Entrei aqui em', message.guild.joinedAt)
-        .addField(':busts_in_silhouette:  Membros', `${message.guild.memberCount}`)
-        .setThumbnail(message.guild.iconURL)
-        message.channel.send(embed)
-}
-
 if (command == `${prefix}anunciar`) {
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send(`**Você não tem permissão para utilizar este comando!** :x:`);
     let anuncio = args.join(" ");
@@ -133,19 +117,37 @@ if (command == `${prefix}anunciar`) {
           kickchannel.send(kickEmbed);
         }
 
-bot.on('guildMemberAdd', member => {
-  let avatar = member.user.avatarURL
+    bot.on('guildMemberAdd', member => {
+      let avatar = member.user.avatarURL
 
-  let role = member.guild.roles.find('name', ':zipper_mouth: NÃO VERIFICADO');
+      let embed = new Discord.RichEmbed()
+          .setColor('RANDOM')
+          .setThumbnail(avatar)
+          .addField('Bem vindo ao discord.', `Bem vindo(a) ${member} ao discord oficial da Light NetWork!\n Você foi o __${member.guild.memberCount}__ player a entrar em nosso servidor\n \nPara interagir com os player vá em: #📃chat-geral\nPara ver os nossos anúncios vá em: #⛔avisos⛔\n \nAcesse já o site do servidor: https://lightmine.tk/`)
+          .setFooter(`Light NetWork`);
+          bot.channels.get('507293636036395008').send(embed);
+    })
 
-  let embed = new Discord.RichEmbed()
-      .setColor('RANDOM')
-      .setThumbnail(avatar)
-      .addField('Bem vindo ao discord.', `Bem vindo(a) ${member} ao discord oficial da Light!\n Você foi o __${member.guild.memberCount}__ player a entrar em nosso servidor\n \nPara interagir com os player vá em: #📃chat-geral\nPara ver os nossos anúncios vá em: #⛔avisos⛔\n \nAcesse já o site do servidor: https://lightmine.tk`)
-      .setFooter(`Light`);
-      bot.channels.get('503980138766139433').send(embed);
-      member.addRole(role)
-})
+if (command == `${prefix}limpar`) {
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`:no_entry_sign: I <@${message.author.id}>, Comando Negado`);
+  if(!message.guild.member(bot.user).hasPermission('MANAGE_MESSAGES')) return message.channel.send(message.author + ", Eu não tenho as seguintes permissões: `Gerenciar Mensagens`")
 
+      // We want to check if the argument is a number
+      if (isNaN(args[0])) {
+          // Sends a message to the channel.
+          message.channel.send('Coloque um número de 1 á 100! Para poder apagar as mensagens!'); //\n means new line.
+          // Cancels out of the script, so the rest doesn't run.
+          return;
+      }
+
+      const fetched = await message.channel.fetchMessages({limit: args[0]}); // This grabs the last number(args) of messages in the channel.
+      console.log(fetched.size + ' messages found, deleting...'); // Lets post into console how many messages we are deleting
+
+      // Deleting the messages
+      message.channel.bulkDelete(fetched)
+
+.catch(error => message.reply(`Eu não consegui deletar mensagens por: ${error}`));
+message.channel.send(`:white_check_mark: I ${message.author}, Chat limpo!`)
+}
     });
 bot.login(TOKEN);
