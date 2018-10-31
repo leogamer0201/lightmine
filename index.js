@@ -6,7 +6,7 @@ const TOKEN = process.env.BOT_TOKEN
 
 bot.on("message", function(message) {
 
-    bot.user.setActivity(`LightMine loja de minecraft!`, {type: "WATCHING"});
+    bot.user.setActivity(`Servidor de minecraft! > Site: https://lightmine.tk`, {type: "WATCHING"});
            
 });
 
@@ -17,28 +17,6 @@ bot.on("message", function(message) {
         let messageArray = message.content.split(" ");
         let command = messageArray[0];
         let args = messageArray.slice(1);
-
-        if (command == `${prefix}ajuda`) {
-			
-			message.channel.send(message.author + '**, Enviei meus comandos na sua dm.**')
-			
-			const h1 = new Discord.RichEmbed()
-			.addField('Comandos Públicos:', '!serverinfo - Mostra as informações do servidor\n!reportar - Reporta um usuário para a Staff')
-			.setColor('#ff7a00')
-			.setAuthor(message.author.tag, message.author.displayAvatarURL)
-
-			.addField('Comandos para Moderação:', '!ban - Bane o usuário do servidor(Banir Membros)\n!kick - Expulsa o usuário do servidor(Expulsar Membros)')
-			.setAuthor(message.author.tag, message.author.displayAvatarURL)
-			
-			.addField('Outros Comandos:', '!anunciar - Faz um anúncio no canal #anuncios(Gerenciar Canais)')
-			.setAuthor(message.author.tag, message.author.displayAvatarURL)
-	
-			  try{
-    await message.author.send(h1)
-  }catch(e){
-    console.log(e.stack);
-    message.channel.send(`${message.author}**, Habilite o Dm para eu enviar os comandos.**`)
-  }
 
         if (command == `${prefix}serverinfo`) {
             const embed = new Discord.RichEmbed()
@@ -113,32 +91,6 @@ if (command == `${prefix}anunciar`) {
 
     incidentchannel.send(banEmbed);
 }
-        
-                if (command == `${prefix}reportar`) {
-                   let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-          if(!rUser) return message.channel.send(`**Mencione o usuário!** :x:`);
-          if(rUser.id === message.author.id) return message.channel.send(`**Você não pode se Reportar!** :x:`)
-          let rreason = args.join(" ").slice(22);
-          if(!rreason) return message.channel.send(`**Coloque a razão do Report!** :x:`)
-          message.delete();
-      
-          let reportEmbed = new Discord.RichEmbed()
-        .setTitle(`LightMine`)
-        .addField('Usuário Reportado', rUser)
-        .addField('Reportado pelo', message.author)
-        .addField('Razão', rreason)
-          .setColor("#54eb12")
-          .setThumbnail(message.author.avatarURL)
-          .setFooter(`FlashReport`)
-      
-          let reportschannel = message.guild.channels.find(`name`, 'reportes');
-          if(!reportschannel) return message.channel.send(`O canal **reportes** não existe. :x:`);
-
-          message.channel.send(`**Usuário reportado com sucesso.**`)
-      
-          message.delete().catch(O_o=>{});
-          reportschannel.send(reportEmbed);
-        }
         
                 if (command == `${prefix}kick`) {
           if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(`**Você não tem permissão para utilizar esse comando!** :x:`);
