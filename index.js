@@ -143,7 +143,7 @@ bot.on('guildMemberAdd', member => {
       .setThumbnail(avatar)
       .addField('Bem vindo ao discord.', `Bem vindo(a) ${member} ao discord oficial da Light!\n Você foi o __${member.guild.memberCount}__ player a entrar em nosso servidor\n \nPara interagir com os player vá em: #📃chat-geral\nPara ver os nossos anúncios vá em: #⛔avisos⛔\n \nAcesse já o site do servidor: https://lightmine.tk`)
       .setFooter(`Light`);
-      client.channels.get('502233508618698753').send(embed);
+      client.channels.get('📍bem-vindos').send(embed);
       member.addRole(role)
 })
 
