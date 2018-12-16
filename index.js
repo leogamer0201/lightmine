@@ -179,7 +179,18 @@ message.channel.send(`:white_check_mark: I ${message.author}, Chat limpo!`)
       
           message.delete().catch(O_o=>{});
           reportschannel.send(reportEmbed);
-        } 
+        } ~
+
+if (message.content === `${prefix}ip`) {
+    let bicon = bot.user.displayAvatarURL;
+    let botembed = new Discord.RichEmbed()
+        .setAuthor("Mundo Survival", bicon)
+        .setDescription("• Olá, o ip do servidor e **ed.dailison.com**")
+        .setColor("#15f153")
+        .setThumbnail(bicon)
+
+    return message.channel.send(botembed);
+}
 
     });
 bot.login(TOKEN);
