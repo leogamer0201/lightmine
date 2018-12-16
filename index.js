@@ -181,16 +181,12 @@ message.channel.send(`:white_check_mark: I ${message.author}, Chat limpo!`)
           reportschannel.send(reportEmbed);
         } ~
 
-if (message.content === `${prefix}ip`) {
-    let bicon = bot.user.displayAvatarURL;
-    let botembed = new Discord.RichEmbed()
-        .setAuthor("Mundo Survival", bicon)
-        .addField("• Olá, o ip do servidor e **ed.dailison.com**")
-        .setColor("#15f153")
-        .setThumbnail(bicon)
-
-    return message.channel.send(botembed);
-}
+else if(command === "<@469983706149421057>") {
+    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
+    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+    const m = await message.channel.send("Minha prefix e **!**, O ip do servidor e **ed.dailison.com**");
+    m.edit(`Pong! A latência é ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+  }
 
     });
 bot.login(TOKEN);
