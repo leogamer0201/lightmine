@@ -154,5 +154,32 @@ if (command == `${prefix}limpar`) {
 .catch(error => message.reply(`Eu não consegui deletar mensagens por: ${error}`));
 message.channel.send(`:white_check_mark: I ${message.author}, Chat limpo!`)
 }
+
+                if (command == `${prefix}reportar`) {
+                   let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+          if(!rUser) return message.channel.send(`**Mencione o usuário!** :x:`);
+          if(rUser.id === message.author.id) return message.channel.send(`**Você não pode se Reportar!** :x:`)
+          let rreason = args.join(" ").slice(22);
+          if(!rreason) return message.channel.send(`**Coloque a razão do Report!** :x:`)
+          message.delete();
+      
+          let reportEmbed = new Discord.RichEmbed()
+        .setTitle(`Mundo Survival`)
+        .addField('Usuário Reportado', rUser)
+        .addField('Reportado pelo', message.author)
+        .addField('Razão', rreason)
+          .setColor("#54eb12")
+          .setThumbnail(message.author.avatarURL)
+          .setFooter(`MsReport`)
+      
+          let reportschannel = message.guild.channels.find(`name`, 'reportes');
+          if(!reportschannel) return message.channel.send(`:x: Erro: O canal **reportes** não existe.`);
+
+          message.channel.send(`**Usuário reportado com sucesso.**`)
+      
+          message.delete().catch(O_o=>{});
+          reportschannel.send(reportEmbed);
+        } 
+
     });
 bot.login(TOKEN);
