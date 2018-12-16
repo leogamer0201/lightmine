@@ -179,7 +179,7 @@ message.channel.send(`:white_check_mark: I ${message.author}, Chat limpo!`)
       
           message.delete().catch(O_o=>{});
           reportschannel.send(reportEmbed);
-        } ~
+        }
 
 else if(command === "<@469983706149421057>") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
