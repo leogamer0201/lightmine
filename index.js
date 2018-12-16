@@ -54,7 +54,7 @@ if (command == `${prefix}anunciar`) {
               message.guild.member(bUser).ban(`Staff ${message.author.username}\n Motivo: ${bReason}`);
 
     let banEmbed = new Discord.RichEmbed()
-    .setTitle(`LightMine`)
+    .setTitle(`Mundo Survival`)
     .addField('Usuario banido:', bUser)
     .addField('Staff:', message.author)
     .addField('Razão:', bReason, true)
@@ -105,7 +105,7 @@ if (command == `${prefix}anunciar`) {
           }
 
           let kickEmbed = new Discord.RichEmbed()
-          .setTitle(`LightMine`)
+          .setTitle(`Mundo Survival`)
         .addField('Usuário Expulso', kUser)
         .addField(' Pelo Staff', message.author)
         .addField(' Razão', kReason)
@@ -155,7 +155,7 @@ if (command == `${prefix}limpar`) {
 message.channel.send(`:white_check_mark: I ${message.author}, Chat limpo!`)
 }
 
-                if (command == `${prefix}reportar`) {
+                if (command == `${prefix}report`) {
                    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
           if(!rUser) return message.channel.send(`**Mencione o usuário!** :x:`);
           if(rUser.id === message.author.id) return message.channel.send(`**Você não pode se Reportar!** :x:`)
