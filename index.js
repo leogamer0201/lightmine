@@ -8,7 +8,7 @@ bot.on('ready', () => {
 
   console.log(`📡 Estou conectado a: ${bot.users.size} usuários.`)
   let games = [`📡 Estou conectado a ` + bot.users.size + ` Usuários conectados no total`,
-      `🇧🇷 Sou o bot oficial do servidor Light Network`, `😛 Minha prefix e !`, `🤔 Compre vip em nosso site: https://lightmine.tk`];
+      `🇧🇷 Sou o bot oficial do servidor Mundo SUrvival`, `😛 Minha prefix e !`, `🤔 Compre vip em nosso site: (em breve)`];
   setInterval(() => {
       bot.user.setActivity(games[Math.floor(Math.random() * games.length)], { url: "https://twitch.tv/redstoneg4", type: "STREAMING" })
 
