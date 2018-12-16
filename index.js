@@ -185,7 +185,7 @@ if (message.content === `${prefix}ip`) {
     let bicon = bot.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
         .setAuthor("Mundo Survival", bicon)
-        .setDescription("• Olá, o ip do servidor e **ed.dailison.com**")
+        .addField("• Olá, o ip do servidor e **ed.dailison.com**")
         .setColor("#15f153")
         .setThumbnail(bicon)
 
