@@ -8,7 +8,7 @@ bot.on('ready', () => {
 
   console.log(`📡 Estou conectado a: ${bot.users.size} usuários.`)
   let games = [`📡 Estou conectado a ` + bot.users.size + ` Usuários conectados no total`,
-      `🇧🇷 Sou o bot oficial do servidor Mundo SUrvival`, `😛 Minha prefix e !`, `🤔 Compre vip em nosso site: (em breve)`];
+      `🇧🇷 Sou o bot oficial do servidor Mine Network`, `😛 Minha prefix e !`, `🤔 Compre vip em nosso site: www.jogarmine.com`];
   setInterval(() => {
       bot.user.setActivity(games[Math.floor(Math.random() * games.length)], { url: "https://twitch.tv/redstoneg4", type: "STREAMING" })
 
@@ -105,7 +105,7 @@ if (command == `${prefix}anunciar`) {
           }
 
           let kickEmbed = new Discord.RichEmbed()
-          .setTitle(`Mundo Survival`)
+          .setTitle(`Mine Network`)
         .addField('Usuário Expulso', kUser)
         .addField(' Pelo Staff', message.author)
         .addField(' Razão', kReason)
@@ -129,8 +129,8 @@ if (command == `${prefix}anunciar`) {
           .setColor('#CC0000')
           .setThumbnail(avatar)
           .addField('Bem vindo ao discord.', `Bem vindo(a) ${member} ao discord oficial da Light NetWork!\n Você foi o __${member.guild.memberCount}__ player a entrar em nosso servidor\n \nPara interagir com os player vá em: #📃chat-geral\nPara ver os nossos anúncios vá em: #⛔avisos⛔\n \nAcesse já o site do servidor: https://lightmine.tk/`)
-          .setFooter(`Light NetWork`);
-          bot.channels.get('507293636036395008').send(embed);
+          .setFooter(`Mine Network`);
+          bot.channels.get('432721579718213632').send(embed);
     })
 
 if (command == `${prefix}limpar`) {
@@ -164,13 +164,13 @@ message.channel.send(`:white_check_mark: I ${message.author}, Chat limpo!`)
           message.delete();
       
           let reportEmbed = new Discord.RichEmbed()
-        .setTitle(`Mundo Survival`)
+        .setTitle(`Mine Network`)
         .addField('Usuário Reportado', rUser)
         .addField('Reportado pelo', message.author)
         .addField('Razão', rreason)
           .setColor("#54eb12")
           .setThumbnail(message.author.avatarURL)
-          .setFooter(`MsReport`)
+          .setFooter(`MnReport`)
       
           let reportschannel = message.guild.channels.find(`name`, 'reportes');
           if(!reportschannel) return message.channel.send(`:x: Erro: O canal **reportes** não existe.`);
@@ -184,7 +184,7 @@ message.channel.send(`:white_check_mark: I ${message.author}, Chat limpo!`)
 else if(command === "<@469983706149421057>") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Minha prefix e **!**, O ip do servidor e **ed.dailison.com**");
+    const m = await message.channel.send("Minha prefix e **!**, O ip do servidor e **jogarmine.com**");
     m.edit(`Pong! A latência é ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
 
