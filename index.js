@@ -54,7 +54,7 @@ if (command == `${prefix}anunciar`) {
               message.guild.member(bUser).ban(`Staff ${message.author.username}\n Motivo: ${bReason}`);
 
     let banEmbed = new Discord.RichEmbed()
-    .setTitle(`Mundo Survival`)
+    .setTitle(`Mine Network`)
     .addField('Usuario banido:', bUser)
     .addField('Staff:', message.author)
     .addField('Razão:', bReason, true)
